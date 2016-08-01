@@ -1,2 +1,2 @@
-# node-aoj-problem
+# aoj-problem
 get AOJ problem information
