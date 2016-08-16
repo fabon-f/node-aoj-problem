@@ -1,8 +1,13 @@
 const url = require("url");
 const request = require("request");
 const parseProblemPage = require("./parse-problem-page");
-module.exports = function getAOJProblemInfo(problemID) {
-    const problemURL = `http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=${problemID}`;
+const langToParam = lang => {
+    if (lang === "ja") { return "jp"; }
+    if (lang === "en") { return "en"; }
+    throw new Error("Invalid language");
+};
+module.exports = function getAOJProblemInfo(problemID, language) {
+    const problemURL = `http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=${problemID}&lang=${langToParam(language)}`;
     return new Promise((resolve, reject) => {
         request({
             url: problemURL,
