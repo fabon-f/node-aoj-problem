@@ -22,5 +22,10 @@
   "homepage": "https://github.com/hinamiyagk/node-aoj-problem#readme",
   "devDependencies": {
     "eslint": "^3.2.0"
+  },
+  "dependencies": {
+    "iconv": "^2.2.1",
+    "libxmljs": "^0.18.0",
+    "request": "^2.74.0"
   }
 }
