@@ -22,6 +22,10 @@ module.exports = function getAOJProblemInfo(problemID) {
                 comment.remove();
             }
             const description = problemPage.get("//div[@class = \"description\"]");
+            if (!description) {
+                reject(new Error("Problem doesn't exist"));
+                return;
+            }
             resolve(description.childNodes().map(childNode => childNode.toString()).join("").trim());
         });
     });
