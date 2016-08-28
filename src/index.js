@@ -15,6 +15,7 @@ module.exports = function getAOJProblemInfo(problemID, language) {
         }, (error, response, body) => {
             if (error) { reject(error); }
             const problemPage = parseProblemPage(body);
+            const title = problemPage.find("//title")[0].text().replace(/ \| Aizu Online Judge$/, "");
             for (const link of problemPage.find("//div[@class = \"description\"]//a")) {
                 const hrefAttribute = link.attr("href");
                 hrefAttribute.value(url.resolve(problemURL, hrefAttribute.value()));
@@ -31,7 +32,10 @@ module.exports = function getAOJProblemInfo(problemID, language) {
                 reject(new Error("Problem doesn't exist"));
                 return;
             }
-            resolve(description.childNodes().map(childNode => childNode.toString()).join("").trim());
+            resolve({
+                title,
+                description: description.childNodes().map(childNode => childNode.toString()).join("").trim()
+            });
         });
     });
 };
