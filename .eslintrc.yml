@@ -15,3 +15,73 @@ rules:
   semi:
     - error
     - always
+
+  accessor-pairs: error
+  array-callback-return: error
+  curly: error
+  default-case: error
+  dot-location:
+    - error
+    - property
+  dot-notation: error
+  eqeqeq: error
+  no-caller: error
+  no-catch-shadow: error
+  no-div-regex: error
+  no-else-return: error
+  no-eval: error
+  no-extend-native: error
+  no-extra-bind: error
+  no-extra-label: error
+  no-extra-parens: error
+  no-floating-decimal: error
+  no-global-assign: error
+  no-implicit-coercion: error
+  no-implied-eval: error
+  no-invalid-this: error
+  no-iterator: error
+  no-label-var: error
+  no-lone-blocks: error
+  no-loop-func: error
+  no-multi-str: error
+  no-new-func: error
+  no-new-wrappers: error
+  no-new: error
+  no-octal-escape: error
+  no-param-reassign:
+    - error
+    -
+      props: true
+  no-proto: error
+  no-prototype-builtins: error
+  no-return-assign:
+    - error
+    - always
+  no-self-compare: error
+  no-sequences: error
+  no-shadow:
+    - error
+    -
+      builtinGlobals: true
+  no-shadow-restricted-names: error
+  no-template-curly-in-string: error
+  no-throw-literal: error
+  no-unmodified-loop-condition: error
+  no-unsafe-negation: error
+  no-unused-expressions: error
+  no-use-before-define: error
+  no-useless-call: error
+  no-useless-concat: error
+  no-useless-escape: error
+  no-var: error
+  no-void: error
+  no-with: error
+  radix: error
+  wrap-iife:
+    - error
+    - inside
+  yoda:
+    - error
+    - never
+    -
+      exceptRange: true

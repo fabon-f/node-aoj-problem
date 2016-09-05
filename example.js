@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-unused-expressions */
 
 const getAOJProblemInfo = require(".");
 getAOJProblemInfo("0104", "ja").then(data => {
