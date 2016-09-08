@@ -134,7 +134,10 @@ rules:
     - always
   padded-blocks:
     - error
-    - never
+    -
+      blocks: never
+      classes: never
+      switches: never
   quote-props:
     - error
     - as-needed
