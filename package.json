@@ -1,6 +1,6 @@
 {
   "name": "aoj-problem",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "get AOJ problem information",
   "main": "index.js",
   "scripts": {
