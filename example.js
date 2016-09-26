@@ -12,4 +12,4 @@ getAOJProblemInfo("0104", "en").then(data => {
     // <p>
     // There is a magic room in a homestead. The room is paved with H &times W tiles. There are five different tiles:
     // </p> etc...
-});
+}).catch(error => console.error(error));
