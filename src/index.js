@@ -9,6 +9,7 @@ const {
     getElementsByTagName,
     getElements: getElementsByAttribute,
     getElementsByTagType,
+    findAll,
     removeElement
 } = require("domutils");
 
@@ -53,6 +54,9 @@ module.exports = function getAOJProblemInfo(problemID, language) {
             }
             for (const pre of getElementsByTagName("pre", descriptionNode)) {
                 pre.children[0].data = ent.decode(getText(pre));
+            }
+            for (const styledElement of findAll(element => "style" in element.attribs, [descriptionNode])) {
+                delete styledElement.attribs.style;
             }
             resolve({
                 title,
