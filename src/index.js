@@ -2,6 +2,7 @@ const { resolve: resolveURL } = require("url");
 const request = require("request");
 const iconv = require("iconv-lite");
 const htmlparser = require("htmlparser2");
+const ent = require("ent");
 const {
     getText,
     getInnerHTML,
@@ -28,7 +29,10 @@ module.exports = function getAOJProblemInfo(problemID, language) {
                 reject(error);
                 return;
             }
-            const problemPage = htmlparser.parseDOM(iconv.decode(body, "shift_jis"));
+            const problemPage = htmlparser.parseDOM(
+                iconv.decode(body, "shift_jis")
+                    .replace(/<pre>([\s\S]+?)<\/pre>/g, (match, content) => `<pre>${ent.encode(content)}</pre>`)
+            );
             const title = getText(getElementsByTagName("title", problemPage)[0])
                 .replace(/ \| Aizu Online Judge$/, "");
             const descriptionNode = getElementsByAttribute({
@@ -46,6 +50,9 @@ module.exports = function getAOJProblemInfo(problemID, language) {
             }
             for (const comment of getElementsByTagType("comment", descriptionNode)) {
                 removeElement(comment);
+            }
+            for (const pre of getElementsByTagName("pre", descriptionNode)) {
+                pre.children[0].data = ent.decode(getText(pre));
             }
             resolve({
                 title,

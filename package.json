@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "domutils": "^1.5.1",
+    "ent": "^2.2.0",
     "htmlparser2": "^3.9.1",
     "iconv-lite": "^0.4.13",
     "request": "^2.74.0"
